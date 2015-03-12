@@ -1,0 +1,5 @@
+require './assistant.rb'
+require './customer.rb'
+require './dish.rb'
+require './menu.rb'
+require './order.rb'
