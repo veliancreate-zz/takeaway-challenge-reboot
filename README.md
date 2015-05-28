@@ -1,5 +1,11 @@
+![Build Status](https://travis-ci.org/veliancreate/takeaway-challenge-reboot.svg?branch=master)
+
 Takeaway Challenge Reboot
 ==================
+
+## Tech used
+
+Ruby, Rspec, OOP
 
 ## Lessons learned
 
