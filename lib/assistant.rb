@@ -4,30 +4,27 @@ require 'sinatra'
 
 class Assistant
 
-  #need a method to get customer input
+  def time
+    time = Time.new
+    min = time.min
+    hour = time.hour + 1
+    "#{hour}:#{min}"
+  end
 
-  def check_order(order, menu, customer)
-    total_check=0
-    order.order_detail.each do |order_item|
-      menu.dishes.each do |dish|
-        if order_item[:dish]==dish.name
-          total_check += dish.price*order_item[:item_count]
-        end  
-      end  
-    end
-    if total_check==order.order_total_cost
-      order.confirm_order(customer, assistant)
+  def send_text(name, time)
+    account_sid = 'AC97e1edfa242b4d35325b33c03a2d86cc'
+    auth_token = 'e9f9fba2c994c1ba29c17504147943f6'
+    @client = Twilio::REST::Client.new account_sid, auth_token
+    @client.messages.create(body: 'Hello ' + name + ', Your order will be delivered at' + ' ' + time,
+                                    to: '+447500456388',
+                                    from: '+441618505867')
+  end
+
+  def check_order(customer, order)
+    if customer.amount_input == order.total_cost
+      send_text(customer.name, time)
     else
-      raise "Sorry you inputted the wrong amount."
-    end            
-  end  
-
-  def confirm_order(customer)
-    time=Time.new
-    hour = time.strftime("%I").next
-    minutes = time.strftime("%M")
-    print_time = hour+':'+minutes
-    puts "Thanks #{customer.name}, your order was placed and will be delivered at #{print_time}" 
-  end  
-  
-end  
+      fail 'Sorry you inputted the wrong amount.'
+    end
+  end
+end

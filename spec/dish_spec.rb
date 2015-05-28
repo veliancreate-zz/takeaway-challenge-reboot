@@ -1,13 +1,12 @@
 require 'dish'
 
-describe 'Dish' do 
-
+describe 'Dish' do
   dish = Dish.new
 
   it 'should have name and price as instance variables' do
     expect(dish).to respond_to(:price, :name)
-  end  
-  
+  end
+
   it 'The default dish of curry should have a price of 10' do
     expect(Dish.curry.name).to eq(:curry)
     expect(Dish.curry.price).to eq(10)
@@ -27,5 +26,4 @@ describe 'Dish' do
     expect(Dish.burger.name).to eq(:burger)
     expect(Dish.burger.price).to eq(40)
   end
-
-end  
+end
