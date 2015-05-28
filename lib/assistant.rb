@@ -3,7 +3,6 @@ require 'twilio-ruby'
 require 'sinatra'
 
 class Assistant
-
   def time
     time = Time.new
     min = time.min
@@ -16,8 +15,8 @@ class Assistant
     auth_token = 'e9f9fba2c994c1ba29c17504147943f6'
     @client = Twilio::REST::Client.new account_sid, auth_token
     @client.messages.create(body: 'Hello ' + name + ', Your order will be delivered at' + ' ' + time,
-                                    to: '+447500456388',
-                                    from: '+441618505867')
+                            to: '+447500456388',
+                            from: '+441618505867')
   end
 
   def check_order(customer, order)
