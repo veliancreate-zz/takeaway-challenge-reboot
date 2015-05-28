@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/veliancreate/takeaway-challenge-reboot.svg?branch=master)
+![Build Status](https://travis-ci.org/veliancreate/takeaway-challenge-reboot.svg?branch=master) [![Code Climate](https://codeclimate.com/github/veliancreate/takeaway-challenge-reboot/badges/gpa.svg)](https://codeclimate.com/github/veliancreate/takeaway-challenge-reboot)
 
 Takeaway Challenge Reboot
 ==================
